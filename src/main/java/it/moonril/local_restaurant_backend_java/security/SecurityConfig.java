@@ -35,16 +35,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()
 //                        .requestMatchers("/users/**").permitAll() I don't think I need it
-                        .requestMatchers(HttpMethod.GET, "/recipes/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/ingredients/**").permitAll()
-                        .requestMatchers(HttpMethod.PUT, "/recipes/**").hasAuthority("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/recipes/**").hasAuthority("ADMIN")
-                        .requestMatchers(HttpMethod.PATCH, "/recipes/**").hasAuthority("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/recipes/**").hasAuthority("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/ingredients/**").hasAuthority("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/ingredients/**").hasAuthority("ADMIN")
-                        .requestMatchers(HttpMethod.PATCH, "/ingredients/**").hasAuthority("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/ingredients/**").hasAuthority("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/dishes/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/dishes/**").hasAuthority("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/dishes/**").hasAuthority("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/dishes/**").hasAuthority("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/dishes/**").hasAuthority("ADMIN")
                         .anyRequest().permitAll()
                 )
                 .addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);

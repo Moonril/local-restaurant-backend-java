@@ -68,8 +68,8 @@ public class JwtFilter extends OncePerRequestFilter {
 
         AntPathMatcher matcher = new AntPathMatcher();
 
-        // Escludi solo GET  su /recipes/**
-        if (matcher.match("/recipes/**", path) && (method.equals("GET"))) {
+        // Escludi solo GET  su /dishes/**
+        if (matcher.match("/dishes/**", path) && (method.equals("GET"))) {
             return true;
         }
 

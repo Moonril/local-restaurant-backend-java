@@ -66,5 +66,5 @@ public class DishController {
     public void deleteDish(@PathVariable int id) throws NotFoundException {
         dishService.deleteDish(id);
     }
-    
+
 }

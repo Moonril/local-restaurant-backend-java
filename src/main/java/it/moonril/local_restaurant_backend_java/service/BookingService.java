@@ -35,6 +35,7 @@ public class BookingService {
         booking.setCheckInDate(bookingDto.getCheckInDate());
         booking.setNumberOfCustomers(bookingDto.getNumberOfCustomers());
         booking.setPreference(bookingDto.getPreference());
+        booking.setEmail(bookingDto.getEmail());
 
 
 
@@ -58,6 +59,7 @@ public class BookingService {
         bookingToUpdate.setCheckInDate(bookingDto.getCheckInDate());
         bookingToUpdate.setNumberOfCustomers(bookingDto.getNumberOfCustomers());
         bookingToUpdate.setPreference(bookingDto.getPreference());
+        bookingToUpdate.setEmail(bookingDto.getEmail());
 
 
 

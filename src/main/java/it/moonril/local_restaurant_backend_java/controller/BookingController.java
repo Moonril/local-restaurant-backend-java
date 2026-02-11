@@ -25,6 +25,7 @@ public class BookingController {
     private BookingService bookingService;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Page<Booking> getAllBookings(@RequestParam(defaultValue = "0") int page,
                                         @RequestParam(defaultValue = "20") int size,
                                         @RequestParam(defaultValue = "id") String sortBy) {
@@ -32,6 +33,7 @@ public class BookingController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Booking getBookingById(@PathVariable int id) throws NotFoundException {
         return bookingService.getBooking(id);
     }
@@ -58,6 +60,7 @@ public class BookingController {
     }
 
     @PatchMapping("/{id}/status")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Booking patchBooking(
             @PathVariable int id,
             @RequestBody Map<String, String> requestBody

@@ -21,10 +21,12 @@ public class Booking {
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime bookingCreationDate;
+    
     private LocalDate checkInDate;
 
     private int numberOfCustomers;
     private String preference;
+    private String email;
     @Enumerated(EnumType.STRING)
     private BookingStatus bookingStatus = BookingStatus.PENDING;
 }

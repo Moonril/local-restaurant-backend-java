@@ -21,5 +21,7 @@ public class BookingDto {
     @Max(4)
     private int numberOfCustomers;
     private String preference;
+    @NotNull(message = "The field email cannot be empty")
+    private String email;
 
 }

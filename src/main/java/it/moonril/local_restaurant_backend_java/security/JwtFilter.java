@@ -72,6 +72,9 @@ public class JwtFilter extends OncePerRequestFilter {
         if (matcher.match("/dishes/**", path) && (method.equals("GET"))) {
             return true;
         }
+        if (matcher.match("/bookings/**", path) && (method.equals("POST"))) {
+            return true;
+        }
 
 
         // Altri endpoint da escludere completamente

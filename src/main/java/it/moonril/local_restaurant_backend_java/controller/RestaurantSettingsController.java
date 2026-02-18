@@ -1,21 +1,18 @@
 package it.moonril.local_restaurant_backend_java.controller;
 
 import it.moonril.local_restaurant_backend_java.dto.RestaurantSettingsDto;
-
 import it.moonril.local_restaurant_backend_java.exceptions.NotFoundException;
 import it.moonril.local_restaurant_backend_java.exceptions.ValidationException;
 import it.moonril.local_restaurant_backend_java.models.RestaurantSettings;
-
 import it.moonril.local_restaurant_backend_java.service.RestaurantSettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
 
 @RestController
 @RequestMapping(path = "/restaurant-settings")
@@ -24,6 +21,13 @@ public class RestaurantSettingsController {
     @Autowired
     private RestaurantSettingsService settingsService;
 
+    @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public Page<RestaurantSettings> getAllSettings(@RequestParam(defaultValue = "0") int page,
+                                        @RequestParam(defaultValue = "20") int size,
+                                        @RequestParam(defaultValue = "id") String sortBy) {
+        return settingsService.getAllSettings(page, size, sortBy);
+    }
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")

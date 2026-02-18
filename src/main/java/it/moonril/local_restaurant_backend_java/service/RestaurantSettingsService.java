@@ -1,17 +1,16 @@
 package it.moonril.local_restaurant_backend_java.service;
 
-import it.moonril.local_restaurant_backend_java.dto.BookingDto;
+
 import it.moonril.local_restaurant_backend_java.dto.RestaurantSettingsDto;
-import it.moonril.local_restaurant_backend_java.enums.BookingStatus;
+
 import it.moonril.local_restaurant_backend_java.exceptions.NotFoundException;
-import it.moonril.local_restaurant_backend_java.models.Booking;
+
 import it.moonril.local_restaurant_backend_java.models.RestaurantSettings;
 import it.moonril.local_restaurant_backend_java.repository.RestaurantSettingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Map;
+
 
 @Service
 public class RestaurantSettingsService {

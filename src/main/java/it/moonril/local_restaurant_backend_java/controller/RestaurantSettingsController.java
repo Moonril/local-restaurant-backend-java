@@ -1,13 +1,16 @@
 package it.moonril.local_restaurant_backend_java.controller;
 
 import it.moonril.local_restaurant_backend_java.dto.RestaurantSettingsDto;
+import it.moonril.local_restaurant_backend_java.dto.RestaurantSettingsPatchDto;
 import it.moonril.local_restaurant_backend_java.exceptions.NotFoundException;
 import it.moonril.local_restaurant_backend_java.exceptions.ValidationException;
 import it.moonril.local_restaurant_backend_java.models.RestaurantSettings;
 import it.moonril.local_restaurant_backend_java.service.RestaurantSettingsService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -54,6 +57,16 @@ public class RestaurantSettingsController {
                     .map(objectError -> objectError.getDefaultMessage()).reduce("", (e, s) -> e + s));
         }
         return settingsService.updateSettings(id, settingsDto);
+    }
+
+
+    @PatchMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<RestaurantSettings> patchSettings(
+            @Valid @RequestBody RestaurantSettingsPatchDto dto
+    ) {
+        RestaurantSettings updatedSettings = settingsService.patchSettings(dto);
+        return ResponseEntity.ok(updatedSettings);
     }
 
 

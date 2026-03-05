@@ -55,7 +55,7 @@ public class BookingService {
     public Booking updateBooking(int id, BookingDto bookingDto) throws NotFoundException {
         Booking bookingToUpdate = getBooking(id);
 
-        bookingToUpdate.setName(bookingToUpdate.getName());
+        bookingToUpdate.setName(bookingDto.getName());
         bookingToUpdate.setCheckInDate(bookingDto.getCheckInDate());
         bookingToUpdate.setNumberOfCustomers(bookingDto.getNumberOfCustomers());
         bookingToUpdate.setPreference(bookingDto.getPreference());

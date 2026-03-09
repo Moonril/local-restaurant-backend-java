@@ -1,9 +1,9 @@
 package it.moonril.local_restaurant_backend_java.dto;
 
+import it.moonril.local_restaurant_backend_java.enums.BookingStatus;
 import jakarta.validation.constraints.*;
 import lombok.Data;
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 public class BookingDto {
@@ -13,7 +13,7 @@ public class BookingDto {
 
     @NotNull(message = "The field checkInDate cannot be empty")
     @Future(message = "The check-in date cannot be in the past")
-    private LocalDate checkInDate;
+    private LocalDateTime checkInDate;
 
 
     @NotNull(message = "The field numberOfCustomers cannot be empty")
@@ -23,5 +23,6 @@ public class BookingDto {
     private String preference;
     @NotNull(message = "The field email cannot be empty")
     private String email;
+    private BookingStatus bookingStatus;
 
 }

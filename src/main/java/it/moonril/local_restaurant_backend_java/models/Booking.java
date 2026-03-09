@@ -4,8 +4,6 @@ import it.moonril.local_restaurant_backend_java.enums.BookingStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -22,7 +20,7 @@ public class Booking {
     @Column(nullable = false, updatable = false)
     private LocalDateTime bookingCreationDate;
     
-    private LocalDate checkInDate;
+    private LocalDateTime checkInDate;
 
     private int numberOfCustomers;
     private String preference;

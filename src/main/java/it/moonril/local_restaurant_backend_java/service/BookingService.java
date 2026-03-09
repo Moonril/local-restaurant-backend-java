@@ -36,6 +36,7 @@ public class BookingService {
         booking.setNumberOfCustomers(bookingDto.getNumberOfCustomers());
         booking.setPreference(bookingDto.getPreference());
         booking.setEmail(bookingDto.getEmail());
+        booking.setBookingStatus((bookingDto.getBookingStatus()));
 
 
 
@@ -60,6 +61,7 @@ public class BookingService {
         bookingToUpdate.setNumberOfCustomers(bookingDto.getNumberOfCustomers());
         bookingToUpdate.setPreference(bookingDto.getPreference());
         bookingToUpdate.setEmail(bookingDto.getEmail());
+        bookingToUpdate.setBookingStatus(bookingDto.getBookingStatus());
 
 
 
